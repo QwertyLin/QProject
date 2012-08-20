@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TabHost的id必须为@android:id/tabhost -->
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@android:id/tabhost"
+	style="@style/ff">
+	
+	<LinearLayout style="@style/ffv">
+		
+	     <!-- 布局必须为FrameLayout，且id必须为@android:id/tabcontent -->
+		<FrameLayout android:id="@android:id/tabcontent"
+			style="@style/ff"
+			android:layout_weight="1" />
+		
+		<!-- TabWidget的id必须为@android:id/tabs -->
+		<TabWidget android:id="@android:id/tabs" 
+			style="@style/fw"
+			android:visibility="gone"
+			/>
+		
+		<RadioGroup 
+		    android:id="@+id/radioGroup"
+		    style="@style/fwh"
+		    android:gravity="center_vertical"
+			android:layout_gravity="bottom" 
+			android:background="@drawable/tab_bg"
+			>
+			
+			<RadioButton 
+			    android:id="@+id/radio_1" 
+			    style="@style/tabhost.radio"
+				android:text="第一个"
+				android:drawableTop="@drawable/tab_icon_test" 
+				android:checked="true"
+				/>
+			<RadioButton 
+			    android:id="@+id/radio_2" 
+			   style="@style/tabhost.radio"
+				android:text="第二个"
+				android:drawableTop="@drawable/tab_icon_test" 
+				/>
+			<RadioButton 
+			    android:id="@+id/radio_3"
+			    style="@style/tabhost.radio"
+				android:text="第三个"
+				android:drawableTop="@drawable/tab_icon_test" 
+				/>
+			<RadioButton 
+			    android:id="@+id/radio_4"
+			    style="@style/tabhost.radio"
+				android:text="第四个"
+				android:drawableTop="@drawable/tab_icon_test" 
+				/>
+		</RadioGroup>
+
+	</LinearLayout>
+
+</TabHost>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="q.project"
+    android:versionCode="1"
+    android:versionName="1.0" 
+    >
+
+    <uses-sdk android:minSdkVersion="8" />
+    
+    
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/><!-- 获取网络状态。获取网络信息状态，如当前的网络连接是否有效 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/><!-- 访问网络。访问网络连接，可能产生GPRS流量。 -->
+    <uses-permission android:name="android.permission.CAMERA" /><!-- 拍照权限。允许访问摄像头进行拍照 --> 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /><!-- 录制视频/音频权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/><!-- 读取联系人。允许应用访问联系人通讯录信息 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/><!-- 写入联系人。写入联系人，但不可读取 -->  
+    <uses-permission android:name="android.permission.VIBRATE" /><!-- 使用振动。允许振动 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 往SDCard写入数据权限 -->
+    <!--  -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!-- 百度定位API -->
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE"></permission>
+	<uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"></uses-permission> 
+	
+	
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" 
+        >
+        <activity
+            android:name=".QProjectActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".QProjectActivity2" />
+       
+        
+        <activity android:name=".CameraActivity" /><!-- 相机 -->
+        <activity android:name=".ContactActivity" /><!-- 通讯录 -->
+        
+        <activity android:name=".GridActivity" /><!-- 网格 -->
+        <activity android:name=".TabHostActivity" /><!-- TabHost -->
+        
+        <activity android:name=".FlingGalleryActivity" /><!-- 滑动 -->
+        <activity android:name=".AsynImageListActivity" /><!-- 异步图片列表 -->
+        
+        <activity android:name=".demo.LineWrapButtonGroupLinearLayoutActivity" /><!-- 能够自动换行的Button群 -->
+        
+        <activity android:name=".MoreActivity" /><!-- 更多 -->
+        
+        <activity android:name=".TestScrollActivity" />
+        
+        <activity android:name="com.markupartist.android.widget.PullToRefreshActivity"/>
+        
+        
+        <activity android:name=".AlignCenterScrollViewActivity" />
+        
+        <!-- View -->
+        <activity android:name=".ViewImageView" />
+        <activity android:name=".ViewScrollView" />
+        <activity android:name=".ViewGridView" />
+        <activity android:name=".ViewGallery" />
+        
+        <activity android:name=".QTestA" />
+                
+        <activity android:name=".framework.A" />
+        <activity android:name=".framework.TitleA" />
+        
+        <activity android:name=".openapi.A" />
+        <activity android:name=".openapi.BaiduLocationA"/><service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote" android:permission="android.permission.BAIDU_LOCATION_SERVICE"><intent-filter><action android:name="com.baidu.location.service_v2.3"></action></intent-filter></service>
+        <activity android:name=".openapi.Oauth2A" /><activity android:name="q.util.a.view.QOauth2" />
+        
+        <activity android:name=".os.app.A" android:label="app"/>
+        <activity android:name=".os.app.ActivityA" />
+        <activity android:name=".os.app.ActivityGroupA" />
+        <activity android:name=".os.app.AlarmManagerA" />
+        <activity android:name=".os.app.AnimationA" />
+        <activity android:name=".os.app.CameraA" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <activity android:name=".os.app.ConnectivityManagerA" />
+        <activity android:name=".os.app.HandlerA" />
+        <activity android:name=".os.app.MediaRecordA" />
+        <activity android:name=".os.app.NotificationA" />
+        <activity android:name=".os.app.ManagerA" />
+        <activity android:name=".os.app.ServiceA" /><service android:name=".os.app.ServiceC" />
+        
+        <activity android:name=".os.bitmap.A" android:label="bitmap"/>
+        <activity android:name=".os.bitmap.BitmapA"/>
+        <activity android:name=".os.bitmap.CanvasA"/>
+        <activity android:name=".os.bitmap.ColorFilterA"/>
+        <activity android:name=".os.bitmap.MatrixA"/>
+        
+        <activity android:name=".os.canvas.A" android:label="canvas"/>
+        <activity android:name=".os.canvas.PaintA" />
+        
+        <activity android:name=".os.draw.A" />
+        <activity android:name=".os.draw.RepeatDrawA" />
+        
+        <activity android:name=".os.intent.A" android:label="intent"/>
+        <activity android:name=".os.intent.IntentToOutA" />
+        <activity android:name=".os.intent.IntentFromOutA">
+            <intent-filter android:label="QProject">     
+				<action android:name="android.intent.action.SEND" />
+				<category android:name="android.intent.category.DEFAULT" />  
+				<data android:mimeType="image/*" /><!-- 限制文件类型 -->
+			</intent-filter>
+			<intent-filter>  
+			    <action android:name="android.intent.action.VIEW" />  
+			    <category android:name="android.intent.category.DEFAULT" />  
+			    <category android:name="android.intent.category.BROWSABLE" />  
+			    <data android:scheme="http"/><!-- 限制http协议 -->
+			</intent-filter>
+        </activity>
+        
+        <activity android:name=".os.media.A" android:label="media"/>
+        <activity android:name=".os.media.VideoA" />
+        
+        <activity android:name=".os.view.A" /><!-- 系统布局 -->
+        <activity android:name=".os.view.DialogA" />
+        <activity android:name=".os.view.GestureDetectorA" />
+        <activity android:name=".os.view.GridViewA" />
+        <activity android:name=".os.view.PopupWindowA" />
+        <activity android:name=".os.view.SlidingDrawerA" />
+        <activity android:name=".os.view.TextViewA" />
+        <activity android:name=".os.view.ViewA" />
+        <activity android:name=".os.view.WebViewA" />
+        <activity android:name=".os.view.WindowManagerA" />
+        
+        <activity android:name=".os.viewc.A" android:label="view custom" />
+        <activity android:name=".os.viewc.ListViewOrderGroupA" />
+        <activity android:name=".os.viewc.ListViewDragA" />
+        <activity android:name=".os.viewc.ScrollViewPagingA" />
+        <activity android:name=".os.viewc.ViewPaintA" />
+        
+        <activity android:name=".os.viewf.A" /><!-- 自定义布局 -->
+        <activity android:name=".os.viewf.MultiTouchFilterA" />
+        
+        <activity android:name=".view.tab.A" />
+        <activity android:name=".view.tab.TabSub1" />
+        <activity android:name=".view.tab.TabSub2" />
+        <activity android:name=".view.tab.ReturnResult" />
+        <activity android:name=".view.tab.ReturnResult2" />
+        <activity android:name=".view.tab.ReturnResult3" />
+        
+        <!-- Open API -->
+        <activity android:name=".other.A" />
+        <activity android:name=".other.HttpCache" />
+        <activity android:name=".other.QCamera"/>
+        <activity android:name=".other.XmlParser"/>
+        <activity android:name=".other.KeyListener"/>
+        <activity android:name=".other.RegExpA" />
+               
+    </application>
+
+</manifest>

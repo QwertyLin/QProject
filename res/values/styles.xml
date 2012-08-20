@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+    </style>
+    
+    <!-- temp -->
+    <style name="ContentOverlay" parent="android:style/Theme.Dialog">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:windowContentOverlay">@null</item> 
+        <item name="android:backgroundDimEnabled">false</item>
+	</style>
+	<style name="AnimationActivity" parent="@android:style/Animation.Activity">
+		<item name="android:activityOpenEnterAnimation">@anim/zoom_enter</item><!-- 当前activity打开时，进入的activity的动画 -->
+		<item name="android:activityOpenExitAnimation">@null</item><!-- 当前activity打开时，退出的activity的动画 -->
+		<item name="android:activityCloseEnterAnimation">@null</item><!-- 当前activity关闭时，进入的activity的动画 -->
+		<item name="android:activityCloseExitAnimation">@anim/zoom_exit</item><!-- 当前activity关闭时，退出的activity的动画 -->
+	</style>
+	<style name="ThemeActivity">
+		<item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+	</style>
+
+	<style name="ff">
+    	<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="ww">
+    	<item name="android:layout_width">wrap_content</item>
+    	<item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="fw">
+    	<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="wf">
+    	<item name="android:layout_width">wrap_content</item>
+    	<item name="android:layout_height">fill_parent</item>
+    </style>    
+
+	<style name="ffv" parent="ff">
+    	<item name="android:orientation">vertical</item>
+	</style>
+	<style name="ffh" parent="ff">
+    	<item name="android:orientation">horizontal</item>
+	</style>	
+	<style name="wwv" parent="ww">
+    	<item name="android:orientation">vertical</item>
+    </style>
+    <style name="wwh" parent="ww">
+    	<item name="android:orientation">horizontal</item>
+    </style>
+    <style name="fwv" parent="fw">
+    	<item name="android:orientation">vertical</item>
+    </style>
+    <style name="fwh" parent="fw">
+    	<item name="android:orientation">horizontal</item>
+    </style>
+    <style name="wfv" parent="wf">
+    	<item name="android:orientation">vertical</item>
+    </style>    
+    <style name="wfh" parent="wf">
+    	<item name="android:orientation">horizontal</item>
+    </style>  
+    
+    <style name="bg">
+        <item name="android:background">@color/white</item>
+    </style>
+    	
+    <style name="list" parent="@style/ffv">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">#ffd1d1d1</item>
+    </style>  
+    
+    <style name="tabhost.radio" parent="@style/fw">
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:textColor">@color/tab_text</item>
+        <item name="android:background">@drawable/tab_radio_bg</item>
+    </style>
+    
+    <!-- <style name="PreferenceTextLarge" parent="@style/ww">
+        <item name="android:textSize">@dimen/BigTextSize</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style> -->
+            
+    <style name="MMButton" parent="@style/ww">
+        <item name="android:textSize">16.0dip</item>
+        <item name="android:background">@null</item>
+        <item name="android:minWidth">40.0dip</item>
+        <item name="android:minHeight">40.0dip</item>
+    </style>
+     
+    <style name="MMLineActionButton" parent="@style/MMLineButton">
+    </style>
+    
+    <style name="MMLineButton" parent="@style/MMButton">
+        <!-- <item name="android:textColor">@color/mm_style_two_btn_text</item> -->
+        <item name="android:layout_width">fill_parent</item>
+    </style>
+    
+    
+    
+    <!-- 
+    <style name="FontPreferenceSmall">
+        <item name="android:textAppearance">@style/PreferenceTextSmall</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:shadowColor">#a0ffffff</item>
+        <item name="android:shadowDx">1.2</item>
+        <item name="android:shadowDy">1.2</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+    
+   <style name="PreferenceTextSmall">
+        <item name="android:textSize">@dimen/SmallTextSize</item>
+        <item name="android:textColor">@color/mm_pref_summary</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    
+    
+    <style name="FontPreferenceLarge" parent="@style/ww">
+        <item name="android:textAppearance">@style/PreferenceTextLarge</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:shadowColor">#a0ffffff</item>
+        <item name="android:shadowDx">1.2</item>
+        <item name="android:shadowDy">1.2</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style> -->
+                
+    <!-- 
+    <item name="android:checkboxStyle">@style/CheckBox</item>
+    <item name="android:preferenceScreenStyle">@style/MMPreferenceScreen</item>
+    <item name="android:preferenceCategoryStyle">@style/MMPreference.Catagory</item>
+    <item name="android:preferenceInformationStyle">@style/MMPreference.Information</item>
+    <item name="android:preferenceStyle">@style/MMPreference</item>
+    <item name="android:checkBoxPreferenceStyle">@style/MMPreference.CheckBoxPreference</item>
+    <item name="android:yesNoPreferenceStyle">@style/MMPreference.DialogPreference.YesNoPreference</item>
+    <item name="android:dialogPreferenceStyle">@style/MMPreference.DialogPreference</item>
+    <item name="android:editTextPreferenceStyle">@style/MMPreference.DialogPreference.EditTextPreference</item>
+    <item name="android:ringtonePreferenceStyle">@style/MMPreference.RingtonePreference</item>
+    <item name="android:preferenceLayoutChild">@style/MMPreference.Child</item> 
+    
+    <item name="android:windowTitleSize">25.0dip</item>
+    <item name="android:windowTitleStyle">@style/WindowTitle</item>
+    <item name="android:windowTitleBackgroundStyle">@style/TitleBarBg</item>
+    -->
+    <style name="q.theme" parent="@android:style/Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        
+        <!-- 
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item> -->
+       <!--  <item name="android:listViewStyle">@style/List</item> -->
+    </style>
+    <!-- 
+    <style name="WindowTitle">
+        <item name="android:windowTitleSize">44dip</item>
+    </style>
+    <style name="WindowTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingLeft">4.0dip</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="TitleBarBg">
+        <item name="android:background">@drawable/titlebar_bg</item>
+    </style> -->
+    
+    <!-- <style name="List">
+    	<item name="android:scrollbars">vertical</item>
+    	<item name="android:background">@color/white</item>
+    	<item name="android:listSelector">@drawable/q_list</item>
+        <item name="android:divider">@color/gray1</item>
+        <item name="android:dividerHeight">1dip</item>
+    </style> -->
+    
+    <style name="q.title" parent="@style/fw">
+        <!-- <item name="android:background">@drawable/q_title_bg</item> -->
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_height">44dip</item>
+    </style>
+    <style name="q.title.btn" parent="@style/wf">
+        <item name="android:minWidth">58dip</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <!-- <item name="android:background">@drawable/q_title_btn_bg</item> -->
+    </style>
+    <style name="q.title.text" parent="@style/ff">
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">19dip</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+    
+    
+    
+    <!-- 系统 -->
+    <!-- 大字体 -->
+    <style name="TextAppearance.Large" parent="ww">
+        <item name="android:textSize">@dimen/TextSize.Large</item>
+        <item name="android:textStyle">normal</item>
+    </style>    
+    <!-- 中字体 -->
+    <style name="TextAppearance.Medium" parent="ww">
+        <item name="android:textSize">@dimen/TextSize.Medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <!-- 小字体 -->
+    <style name="TextAppearance.Small" parent="ww">
+        <item name="android:textSize">@dimen/TextSize.Small</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <!-- 列表 -->
+    <style name="List.Item" parent="@style/ff">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">10dip</item>
+    </style>
+    
+</resources>
