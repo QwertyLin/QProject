@@ -2,7 +2,7 @@ package q.project.os.app;
 
 import q.project.QProjectItem;
 import q.util.a.QToStr;
-import a.manager.QPackage;
+import q.manager.QPackage;
 import android.app.AlertDialog;
 import android.content.pm.PackageInfo;
 import android.view.View;
