@@ -3,9 +3,7 @@ package q.project.os.app;
 import java.io.IOException;
 import java.util.List;
 
-import q.util.QDisplay;
 import q.util.a.QDrawable;
-import q.util.a.QLog;
 import q.util.a.QToStr;
 import android.app.Activity;
 import android.content.Context;

@@ -2,9 +2,9 @@ package q.project;
 
 import java.util.List;
 
+import q.util.QBitmap;
 import q.util.a.QContact;
 
-import a.util.QBitmap;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,7 +27,7 @@ public class ContactActivity extends Activity {
 		setContentView(R.layout.contact_list);
 		
 		Bitmap bitmap = BitmapFactory.decodeResource(getResources(), android.R.drawable.alert_dark_frame);
-		QContact.updatePhoto(this, 3, QBitmap.encode(bitmap));
+		QContact.updatePhoto(this, 3, QBitmap.toByte(bitmap));
 		
 		data = QContact.findAllContacts(this);
 		
