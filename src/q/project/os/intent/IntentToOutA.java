@@ -1,7 +1,7 @@
 package q.project.os.intent;
 
 import q.project.QProjectItem;
-import a.util.QIntent;
+import q.util.QIntent;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Intent;

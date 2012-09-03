@@ -1,7 +1,6 @@
 package q.project.os.app;
 
 import q.project.QProjectItem;
-import q.util.a.QLog;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;

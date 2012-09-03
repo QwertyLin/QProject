@@ -1,7 +1,7 @@
 package q.project.os.viewc;
 
 import q.project.R;
-import q.util.a.QLog;
+import q.util.QLog;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;

@@ -1,6 +1,6 @@
 package q.project.os.view;
 
-import q.util.a.QLog;
+import q.util.QLog;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.GestureDetector;

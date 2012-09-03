@@ -3,8 +3,12 @@ package q.project.os.bitmap;
 import java.io.IOException;
 import java.io.InputStream;
 
+import q.project.QProjectItem;
 import q.project.R;
 import q.util.a.QToStr;
+import q.util.bitmap.QBitmapDecoder;
+import q.util.bitmap.QBitmapFilter;
+import q.util.bitmap.QBitmapUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,35 +22,24 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class BitmapA extends Activity {
+public class BitmapA extends QProjectItem {
 	
-	Context ctx;
-	Button btn;
-	InputStream bitmapStream;
-
+	String file = "/sdcard/DCIM/Camera/1.jpg";
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.q_project);
-		ctx = this;
-		bitmapStream = null;
-		try {
-			bitmapStream = getAssets().open("bitmap.png");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	protected void onInit() {
 		//
-		btn = (Button)findViewById(R.id.btn1);
+		btn = getNextButton();
 		btn.setText("从byte[](拍照),File(SD卡),Resources(res), InputStream(网络)解码Bitmap");
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Bitmap bm = BitmapFactory.decodeStream(bitmapStream);
+				Bitmap bm = BitmapFactory.decodeFile(file);
 				show(bm);
 			}
 		});
 		//
-		btn = (Button)findViewById(R.id.btn2);
+		btn = getNextButton();
 		btn.setText("由int[]创建bitmap");
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
@@ -67,45 +60,31 @@ public class BitmapA extends Activity {
 			}
 		});
 		//
-		btn = (Button)findViewById(R.id.btn3);
-		btn.setText("按指定宽度解码大图片Bitmap，只能缩小不能放大，旨在避免内存溢出。PS：因为是按整数比例缩小，所以只能接近并不能精确得到预期的宽度");
+		btn = getNextButton();
+		btn.setText("按指定宽度解码（宽松）");
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				final int width = 20;
-				BitmapFactory.Options opts = new BitmapFactory.Options();
-				opts.inJustDecodeBounds = true;
-				BitmapFactory.decodeStream(bitmapStream, null, opts);
-				int s = opts.outWidth / width;//原宽度与期望宽度的比例
-				if (s == 0) {
-					s = 1;
-				}
-				opts = new BitmapFactory.Options();
-				opts.inSampleSize = s;
-				Bitmap bm = BitmapFactory.decodeStream(bitmapStream, null, opts);
-				show(bm);
+				show(QBitmapDecoder.deWidthLoose("/sdcard/DCIM/Camera/1.jpg", 200));
 			}
 		});
 		//
-		btn = (Button)findViewById(R.id.btn4);
+		btn = getNextButton();
+		btn.setText("按指定宽度解码（严格）");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				show(QBitmapDecoder.deWidthStrict("/sdcard/DCIM/Camera/1.jpg", 200));
+			}
+		});
+		//
+		btn = getNextButton();
 		btn.setText("将bitmap不透明的部分填充成指定颜色");
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Bitmap bm = BitmapFactory.decodeStream(bitmapStream);
-				final int red = 255, green = 0, blue = 0;//要填充的颜色，0~255
-				int width = bm.getWidth(), height = bm.getHeight();
-				int[] colors = new int[width * height];
-		        for (int y = 0; y < height; y++) {
-		            for (int x = 0; x < width; x++) {
-		            	int color = bm.getPixel(x, y); 
-		            	if(color != 0) {
-		            		colors[y * width + x] = Color.argb(Color.alpha(color), red, green, blue);
-		            	}
-		            }
-		        }
-		        bm = Bitmap.createBitmap(colors, width, height, Config.ARGB_8888);
-				show(bm);
+				Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+				show(QBitmapFilter.fillColor(bm, 0xFF00FF00));
 			}
 		});
 	}
@@ -116,7 +95,9 @@ public class BitmapA extends Activity {
 		iv.setBackgroundColor(0xFFFFFFFF);
 		new AlertDialog.Builder(this)
 		.setView(iv)
-		.setMessage(QToStr.toStr(bm))
+		.setMessage(QBitmapUtil.toString(bm))
 		.show();
 	}
+
+	
 }

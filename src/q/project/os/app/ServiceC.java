@@ -1,6 +1,6 @@
 package q.project.os.app;
 
-import q.util.a.QLog;
+import q.util.QLog;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;

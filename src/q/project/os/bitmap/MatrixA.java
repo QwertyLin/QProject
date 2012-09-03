@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import q.project.R;
 import q.util.a.QToStr;
+import q.util.bitmap.QBitmapUtil;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -84,7 +85,7 @@ public class MatrixA extends Activity {
 		iv.setBackgroundColor(0xFFFFFFFF);
 		new AlertDialog.Builder(this)
 		.setView(iv)
-		.setMessage(QToStr.toStr(bm))
+		.setMessage(QBitmapUtil.toString(bm))
 		.show();
 	}
 }
