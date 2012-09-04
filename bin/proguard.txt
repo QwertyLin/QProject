@@ -118,127 +118,118 @@
 # view AndroidManifest.xml #generated:92
 -keep class q.project.os.bitmap.BitmapA { <init>(...); }
 
-# view AndroidManifest.xml #generated:93
--keep class q.project.os.bitmap.CanvasA { <init>(...); }
-
 # view AndroidManifest.xml #generated:94
--keep class q.project.os.bitmap.ColorFilterA { <init>(...); }
-
-# view AndroidManifest.xml #generated:95
--keep class q.project.os.bitmap.MatrixA { <init>(...); }
-
-# view AndroidManifest.xml #generated:97
 -keep class q.project.os.canvas.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:98
+# view AndroidManifest.xml #generated:95
 -keep class q.project.os.canvas.PaintA { <init>(...); }
 
-# view AndroidManifest.xml #generated:100
+# view AndroidManifest.xml #generated:97
 -keep class q.project.os.draw.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:101
+# view AndroidManifest.xml #generated:98
 -keep class q.project.os.draw.RepeatDrawA { <init>(...); }
 
-# view AndroidManifest.xml #generated:103
+# view AndroidManifest.xml #generated:100
 -keep class q.project.os.intent.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:105
+# view AndroidManifest.xml #generated:102
 -keep class q.project.os.intent.IntentFromOutA { <init>(...); }
 
-# view AndroidManifest.xml #generated:104
+# view AndroidManifest.xml #generated:101
 -keep class q.project.os.intent.IntentToOutA { <init>(...); }
 
-# view AndroidManifest.xml #generated:119
+# view AndroidManifest.xml #generated:116
 -keep class q.project.os.media.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:120
+# view AndroidManifest.xml #generated:117
 -keep class q.project.os.media.VideoA { <init>(...); }
 
-# view AndroidManifest.xml #generated:122
+# view AndroidManifest.xml #generated:119
 -keep class q.project.os.view.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:123
+# view AndroidManifest.xml #generated:120
 -keep class q.project.os.view.DialogA { <init>(...); }
 
-# view AndroidManifest.xml #generated:124
+# view AndroidManifest.xml #generated:121
 -keep class q.project.os.view.GestureDetectorA { <init>(...); }
 
-# view AndroidManifest.xml #generated:125
+# view AndroidManifest.xml #generated:122
 -keep class q.project.os.view.GridViewA { <init>(...); }
 
-# view AndroidManifest.xml #generated:126
+# view AndroidManifest.xml #generated:123
 -keep class q.project.os.view.PopupWindowA { <init>(...); }
 
-# view AndroidManifest.xml #generated:127
+# view AndroidManifest.xml #generated:124
 -keep class q.project.os.view.SlidingDrawerA { <init>(...); }
 
-# view AndroidManifest.xml #generated:128
+# view AndroidManifest.xml #generated:125
 -keep class q.project.os.view.TextViewA { <init>(...); }
 
-# view AndroidManifest.xml #generated:129
+# view AndroidManifest.xml #generated:126
 -keep class q.project.os.view.ViewA { <init>(...); }
 
-# view AndroidManifest.xml #generated:130
+# view AndroidManifest.xml #generated:127
 -keep class q.project.os.view.WebViewA { <init>(...); }
 
-# view AndroidManifest.xml #generated:131
+# view AndroidManifest.xml #generated:128
 -keep class q.project.os.view.WindowManagerA { <init>(...); }
 
-# view AndroidManifest.xml #generated:133
+# view AndroidManifest.xml #generated:130
 -keep class q.project.os.viewc.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:135
+# view AndroidManifest.xml #generated:132
 -keep class q.project.os.viewc.ListViewDragA { <init>(...); }
 
-# view AndroidManifest.xml #generated:134
+# view AndroidManifest.xml #generated:131
 -keep class q.project.os.viewc.ListViewOrderGroupA { <init>(...); }
 
-# view AndroidManifest.xml #generated:136
+# view AndroidManifest.xml #generated:133
 -keep class q.project.os.viewc.ScrollViewPagingA { <init>(...); }
 
-# view AndroidManifest.xml #generated:137
+# view AndroidManifest.xml #generated:134
 -keep class q.project.os.viewc.ViewPaintA { <init>(...); }
 
-# view AndroidManifest.xml #generated:139
+# view AndroidManifest.xml #generated:136
 -keep class q.project.os.viewf.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:140
+# view AndroidManifest.xml #generated:137
 -keep class q.project.os.viewf.MultiTouchFilterA { <init>(...); }
 
-# view AndroidManifest.xml #generated:150
+# view AndroidManifest.xml #generated:147
 -keep class q.project.other.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:151
+# view AndroidManifest.xml #generated:148
 -keep class q.project.other.HttpCache { <init>(...); }
 
-# view AndroidManifest.xml #generated:154
+# view AndroidManifest.xml #generated:151
 -keep class q.project.other.KeyListener { <init>(...); }
 
-# view AndroidManifest.xml #generated:152
+# view AndroidManifest.xml #generated:149
 -keep class q.project.other.QCamera { <init>(...); }
 
-# view AndroidManifest.xml #generated:155
+# view AndroidManifest.xml #generated:152
 -keep class q.project.other.RegExpA { <init>(...); }
 
-# view AndroidManifest.xml #generated:153
+# view AndroidManifest.xml #generated:150
 -keep class q.project.other.XmlParser { <init>(...); }
 
-# view AndroidManifest.xml #generated:142
+# view AndroidManifest.xml #generated:139
 -keep class q.project.view.tab.A { <init>(...); }
 
-# view AndroidManifest.xml #generated:145
+# view AndroidManifest.xml #generated:142
 -keep class q.project.view.tab.ReturnResult { <init>(...); }
 
-# view AndroidManifest.xml #generated:146
+# view AndroidManifest.xml #generated:143
 -keep class q.project.view.tab.ReturnResult2 { <init>(...); }
 
-# view AndroidManifest.xml #generated:147
+# view AndroidManifest.xml #generated:144
 -keep class q.project.view.tab.ReturnResult3 { <init>(...); }
 
-# view AndroidManifest.xml #generated:143
+# view AndroidManifest.xml #generated:140
 -keep class q.project.view.tab.TabSub1 { <init>(...); }
 
-# view AndroidManifest.xml #generated:144
+# view AndroidManifest.xml #generated:141
 -keep class q.project.view.tab.TabSub2 { <init>(...); }
 
 # view AndroidManifest.xml #generated:76

@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Environment;
 import q.project.os.app.CameraA;
 import q.project.os.viewc.ScrollViewPagingA;
+import q.util.QLog;
+import q.util.http.QHttpSimple;
 
 public class QProjectActivity extends QProjectList {
 
@@ -19,6 +21,13 @@ public class QProjectActivity extends QProjectList {
     	/*if(true){
     		return;
     	}*/		
+		
+		try {
+			QLog.log(QHttpSimple.get("https://api.weibo.com/oauth2/authorize"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
 		init("测试", QTestA.class);
     	init("其他", q.project.other.A.class);

@@ -90,9 +90,6 @@
         
         <activity android:name=".os.bitmap.A" android:label="bitmap"/>
         <activity android:name=".os.bitmap.BitmapA"/>
-        <activity android:name=".os.bitmap.CanvasA"/>
-        <activity android:name=".os.bitmap.ColorFilterA"/>
-        <activity android:name=".os.bitmap.MatrixA"/>
         
         <activity android:name=".os.canvas.A" android:label="canvas"/>
         <activity android:name=".os.canvas.PaintA" />

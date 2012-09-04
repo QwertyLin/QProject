@@ -1,25 +1,18 @@
 package q.project.os.bitmap;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import q.project.QProjectItem;
 import q.project.R;
-import q.util.a.QToStr;
 import q.util.bitmap.QBitmapDecoder;
 import q.util.bitmap.QBitmapFilter;
+import q.util.bitmap.QBitmapFilterColor;
+import q.util.bitmap.QBitmapFilterMatrix;
 import q.util.bitmap.QBitmapUtil;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Bitmap.Config;
-import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class BitmapA extends QProjectItem {
@@ -65,7 +58,7 @@ public class BitmapA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				show(QBitmapDecoder.deWidthLoose("/sdcard/DCIM/Camera/1.jpg", 200));
+				show(QBitmapDecoder.deWidthLoose(file, 200));
 			}
 		});
 		//
@@ -74,17 +67,127 @@ public class BitmapA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				show(QBitmapDecoder.deWidthStrict("/sdcard/DCIM/Camera/1.jpg", 200));
+				show(QBitmapDecoder.deWidthStrict(file, 200));
 			}
 		});
 		//
 		btn = getNextButton();
-		btn.setText("将bitmap不透明的部分填充成指定颜色");
+		btn.setText("MatrixFilter 旋转");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeFile(file);
+				show(QBitmapFilterMatrix.rotate(bm, 45));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("MatrixFilter 缩放");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeFile(file);
+				show(QBitmapFilterMatrix.scale(bm, 300, 0));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("MatrixFilter 水平或垂直反转");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeFile(file);
+				show(QBitmapFilterMatrix.reverse(bm, true));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("ColorFilter 调节亮度");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeFile(file);
+				show(QBitmapFilterColor.brightness(bm, -100));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("ColorFilter 调节对比度");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeFile(file);
+				show(QBitmapFilterColor.contrast(bm, 100));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("ColorFilter 调节饱和度");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeFile(file);
+				show(QBitmapFilterColor.saturation(bm, -50));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("ColorFilter 底片效果");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeFile(file);
+				show(QBitmapFilterColor.negative(bm));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("ColorFilter 灰白效果");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeFile(file);
+				show(QBitmapFilterColor.gray(bm));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("Filter 颜色填充");
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
 				show(QBitmapFilter.fillColor(bm, 0xFF00FF00));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("Filter 倒影");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+				show(QBitmapFilter.reflect(bm, 2, 10));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("Filter 圆角");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+				show(QBitmapFilter.roundCorner(bm, 50));
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("Filter 边框");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+				show(QBitmapFilter.border(bm, 2));
 			}
 		});
 	}
