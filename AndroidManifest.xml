@@ -120,6 +120,7 @@
         <activity android:name=".os.view.DialogA" />
         <activity android:name=".os.view.GestureDetectorA" />
         <activity android:name=".os.view.GridViewA" />
+        <activity android:name=".os.view.ListViewA" />
         <activity android:name=".os.view.PopupWindowA" />
         <activity android:name=".os.view.SlidingDrawerA" />
         <activity android:name=".os.view.TextViewA" />

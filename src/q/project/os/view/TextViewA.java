@@ -2,10 +2,13 @@ package q.project.os.view;
 
 import q.project.QProjectItem;
 import q.project.R;
+import q.view.text.QRotateTextView;
 import a.view.QTextView;
+import android.app.AlertDialog;
 import android.net.Uri;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -75,5 +78,22 @@ public class TextViewA extends QProjectItem {
 				QTextView.formatHtmlWithImage(ctx, tvNew, "{图片}", R.drawable.ic_launcher);
 			}
 		});
+		//
+		btn = getNextButton();
+		btn.setText("QRotateTextView 旋转的TextView");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				QRotateTextView tv = new QRotateTextView(ctx, 45);
+				tv.setLayoutParams(new ViewGroup.LayoutParams(200, 200));
+				tv.setBackgroundColor(0xFFFF0000);
+				tv.setText("旋转的TextView");
+				layout.addView(tv, 0);
+			}
+		});
+	}
+	
+	private void show(View v){
+		new AlertDialog.Builder(this).setMessage("111").setView(v).show();
 	}
 }

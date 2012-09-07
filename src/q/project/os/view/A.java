@@ -9,6 +9,7 @@ public class A extends QProjectList {
 		init("Dialog 对话框", DialogA.class);
 		init("GestureDetector 手势", GestureDetectorA.class);
 		init("GridView 网格", GridViewA.class);
+		init("ListView", ListViewA.class);
 		init("PopupWindow", PopupWindowA.class);
 		init("SlidingDrawer 滑动抽屉", SlidingDrawerA.class);
 		init("TextView 文本", TextViewA.class);

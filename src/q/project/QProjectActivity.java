@@ -8,7 +8,7 @@ import android.os.Environment;
 import q.project.os.app.CameraA;
 import q.project.os.viewc.ScrollViewPagingA;
 import q.util.QLog;
-import q.util.http.QHttpSimple;
+import q.util.http.QHttpClient;
 
 public class QProjectActivity extends QProjectList {
 
@@ -21,13 +21,21 @@ public class QProjectActivity extends QProjectList {
     	/*if(true){
     		return;
     	}*/		
+		QHttpClient qHttp = new QHttpClient(this, 1, 0);
+		qHttp.get("http://img-m.poco.cn/mypoco/mtmpfile/MobileAPI/TinyBlog/following_blog.php?uid=66109197&s=0&l=10&cmt=1&link=1&include_me=1", 0, new QHttpClient.CallbackText() {
+			
+			@Override
+			public void onError(IOException e) {
+				// TODO Auto-generated method stub
+			}
+
+			@Override
+			public void onCompleted(String text, String url) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
-		try {
-			QLog.log(QHttpSimple.get("https://api.weibo.com/oauth2/authorize"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     	
 		init("测试", QTestA.class);
     	init("其他", q.project.other.A.class);
