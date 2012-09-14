@@ -12,8 +12,6 @@ import java.util.Map;
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
-import com.markupartist.android.widget.PullToRefreshActivity;
-
 import q.util.QUtil4A;
 import q.util.QUtil;
 import q.util.QUtil4SystemService;

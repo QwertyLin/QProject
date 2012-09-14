@@ -1,15 +1,15 @@
 package q.project;
 
-import java.io.File;
 import java.io.IOException;
 
-import android.content.Intent;
-import android.os.Environment;
-import q.project.os.app.CameraA;
-import q.project.os.viewc.ScrollViewPagingA;
-import q.util.QAppSp;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import android.app.AlertDialog;
+
 import q.util.QLog;
-import q.util.file.QFileManager;
 import q.util.http.QHttpManager;
 
 public class QProjectActivity extends QProjectList {
@@ -24,7 +24,7 @@ public class QProjectActivity extends QProjectList {
     	}*/		
 		
 		
-		QHttpManager.getInstance(this).get("http://www.baidu.com", new QHttpManager.CallbackText() {
+		/*QHttpManager.getInstance(this).get("http://www.36kr.com", new QHttpManager.CallbackText() {
 			
 			@Override
 			public void onError(IOException e) {
@@ -35,7 +35,7 @@ public class QProjectActivity extends QProjectList {
 			@Override
 			protected long getCacheTime() {
 				// TODO Auto-generated method stub
-				return 1000 * 60 * 60;
+				return 10000000000l;
 			}
 			
 			@Override
@@ -52,7 +52,82 @@ public class QProjectActivity extends QProjectList {
 			
 			@Override
 			public void onCompleted(String text, String url) {
-				QLog.log(text);
+				//QLog.log(text);
+				Document doc = Jsoup.parse(text);
+				Element list = doc.getElementById("posts");
+				boolean one = true;
+				Element title;
+				for(Element item : list.getElementsByClass("posts")){
+					if(one){
+						one = false;
+						title = item.select("h3 a").first();
+						QLog.kv(this, "", "title", title.text());
+						QLog.kv(this, "", "url", title.attr("href"));
+						QLog.kv(this, "", "time", item.select(".timeago").first().attr("title"));
+						QLog.kv(this, "", "image", item.select(".thumbnail img").first().attr("src"));
+						//new AlertDialog.Builder(QProjectActivity.this).setMessage(item.text()).show();
+					}
+				}
+				
+			}
+		});*/
+		
+		QHttpManager.getInstance(this).get("http://www.36kr.com/p/153198.html", new QHttpManager.CallbackText() {
+			
+			@Override
+			public void onError() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			protected long getCacheTime() {
+				// TODO Auto-generated method stub
+				return 10000000;
+			}
+			
+			@Override
+			protected String getCacheFile() {
+				// TODO Auto-generated method stub
+				return "/sdcard/aaa";
+			}
+			
+			@Override
+			protected boolean checkExist() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void onCompleted(String text, String url) {
+				//QLog.log(text);
+				Document doc = Jsoup.parse(text);
+				//Element list = doc.getElementById(".instapaper_body");
+				/*System.out.println(doc.select("article").size());
+				Element list = doc.select("article").first();*/
+				boolean verify = false;
+				for(Element e : doc.getElementById("post").children()){
+					if(verify){
+						QLog.log(this, e.text());
+						if(e.tagName().equals("div")){
+							break;
+						}
+					}
+					if(e.tagName().equals("hr")){
+						verify = true;
+					}
+					
+				}
+				
+				
+			}
+
+			@Override
+			protected boolean verify(String text) {
+				if(text.contains("36氪")){
+					return true;
+				}
+				return false;
 			}
 		});
 		
