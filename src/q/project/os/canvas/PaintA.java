@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import q.project.QProjectItem;
-import q.util.a.QToStr;
+import q.util.QToStr;
 
 public class PaintA extends QProjectItem {
 	

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import q.project.QProjectItem;
-import q.util.QRegExp;
+import q.util.QRegExpUtil;
 
 public class RegExpA extends QProjectItem {
 
@@ -26,7 +26,7 @@ public class RegExpA extends QProjectItem {
 			@Override
 			public void onClick(View v) {
 				String str = "gogogog#abc# lsdf s #J#";
-				setText(str, QRegExp.sharp2sharp(str));
+				setText(str, QRegExpUtil.sharp2sharp(str));
 			}
 		});
 	}

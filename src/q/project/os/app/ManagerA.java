@@ -1,10 +1,9 @@
 package q.project.os.app;
 
 import q.project.QProjectItem;
-import q.util.a.QToStr;
-import q.manager.QPackage;
+import q.util.QToStr;
+import q.util.os.QPackageUtil;
 import android.app.AlertDialog;
-import android.content.pm.PackageInfo;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -17,7 +16,7 @@ public class ManagerA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new AlertDialog.Builder(ctx).setMessage(QToStr.toStr(ctx, QPackage.list(ctx))).show();
+				new AlertDialog.Builder(ctx).setMessage(QToStr.toStr(ctx, QPackageUtil.list(ctx))).show();
 			}
 		});
 	}

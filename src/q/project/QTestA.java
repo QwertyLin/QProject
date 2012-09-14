@@ -11,7 +11,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-import a.view.list.QGallery;
 import android.content.Context;
 import android.location.Location;
 import android.telephony.NeighboringCellInfo;

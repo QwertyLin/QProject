@@ -1,7 +1,7 @@
 package q.project.os.app;
 
 import q.project.QProjectItem;
-import q.manager.QNotification;
+import q.util.os.QNotificationUtil;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.view.View;
@@ -16,7 +16,7 @@ public class NotificationA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				QNotification.show(ctx, 1, android.R.drawable.stat_sys_warning, "标题", "内容", PendingIntent.getActivity(ctx, 0, new Intent(), 0));
+				QNotificationUtil.show(ctx, 1, android.R.drawable.stat_sys_warning, "标题", "内容", PendingIntent.getActivity(ctx, 0, new Intent(), 0));
 			}
 		});
 		//
@@ -25,7 +25,7 @@ public class NotificationA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				QNotification.cancel(ctx, 1);
+				QNotificationUtil.cancel(ctx, 1);
 			}
 		});
 	}

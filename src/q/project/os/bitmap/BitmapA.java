@@ -54,20 +54,20 @@ public class BitmapA extends QProjectItem {
 		});
 		//
 		btn = getNextButton();
-		btn.setText("按指定宽度解码（宽松）");
+		btn.setText("按指定尺度解码Bitmap（宽松）");
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				show(QBitmapDecoder.deWidthLoose(file, 200));
+				show(QBitmapDecoder.deLoose(file, 200, 200));
 			}
 		});
 		//
 		btn = getNextButton();
-		btn.setText("按指定宽度解码（严格）");
+		btn.setText("在指定尺度内(不超出)解码Bitmap");
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				show(QBitmapDecoder.deWidthStrict(file, 200));
+				show(QBitmapDecoder.deInSize(file, 200, 200));
 			}
 		});
 		//

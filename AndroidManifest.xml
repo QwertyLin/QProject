@@ -100,7 +100,7 @@
         <activity android:name=".os.intent.A" android:label="intent"/>
         <activity android:name=".os.intent.IntentToOutA" />
         <activity android:name=".os.intent.IntentFromOutA">
-            <intent-filter android:label="QProject">     
+            <intent-filter android:label="QProject"><!-- 分享发送 -->
 				<action android:name="android.intent.action.SEND" />
 				<category android:name="android.intent.category.DEFAULT" />  
 				<data android:mimeType="image/*" /><!-- 限制文件类型 -->

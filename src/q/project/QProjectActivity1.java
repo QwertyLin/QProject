@@ -15,7 +15,6 @@ import org.json.JSONException;
 import com.markupartist.android.widget.PullToRefreshActivity;
 
 import q.util.QUtil4A;
-import q.util.QJson;
 import q.util.QUtil;
 import q.util.QUtil4SystemService;
 import q.util.a.QDrawable;

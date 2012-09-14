@@ -1,19 +1,15 @@
 package q.project.os.app;
 
 import java.io.IOException;
-import java.util.List;
-
-import q.manager.QWindow;
 import q.util.QLog;
-import q.util.a.QDrawable;
-import q.util.a.QToStr;
+import q.util.QToStr;
+import q.util.os.QWindowUtil;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.PixelFormat;
-import android.graphics.Point;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.Parameters;
@@ -24,7 +20,6 @@ import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.RelativeLayout;
 
 /**
  * 尽量在onResume()中初始化，加快体验速度。
@@ -41,7 +36,7 @@ public class QCameraView extends SurfaceView implements SurfaceHolder.Callback {
 	public QCameraView(Context ctx) {
 		super(ctx);
 		this.ctx = ctx;
-		QWindow.setScreenKeepOn((Activity)ctx);
+		QWindowUtil.setScreenKeepOn((Activity)ctx);
 		// Install a SurfaceHolder.Callback so we get notified when the
         // underlying surface is created and destroyed.
 		SurfaceHolder holder = getHolder();
