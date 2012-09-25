@@ -17,6 +17,12 @@ public class QProjectActivity extends QProjectList {
 	@Override
 	protected void onInit() {
 		
+		Document doc = Jsoup.parse("我在 <a para=\"56639\" type=\"63\" title=\"辉记潮汕海鲜砂锅粥 \" href=\"http://food.poco.cn/res_detail-htx-id-56639.shtml\" location_id=\"101029001006001\">#辉记潮汕海鲜砂锅粥#</a> 波萝炒虾球鲜甜可口，嗯");
+		
+		//
+		QLog.log(this, doc.html());
+		QLog.log(this, doc.select("a").first().attr("href"));
+		
 		//startActivity(new Intent(this, ScrollViewPagingA.class));
     	//finish();
     	/*if(true){
@@ -72,7 +78,7 @@ public class QProjectActivity extends QProjectList {
 			}
 		});*/
 		
-		QHttpManager.getInstance(this).get("http://www.36kr.com/p/153198.html", new QHttpManager.CallbackText() {
+		/*QHttpManager.getInstance(this).get("http://www.36kr.com/p/153198.html", new QHttpManager.CallbackText() {
 			
 			@Override
 			public void onError() {
@@ -103,8 +109,8 @@ public class QProjectActivity extends QProjectList {
 				//QLog.log(text);
 				Document doc = Jsoup.parse(text);
 				//Element list = doc.getElementById(".instapaper_body");
-				/*System.out.println(doc.select("article").size());
-				Element list = doc.select("article").first();*/
+				System.out.println(doc.select("article").size());
+				Element list = doc.select("article").first();
 				boolean verify = false;
 				for(Element e : doc.getElementById("post").children()){
 					if(verify){
@@ -129,7 +135,7 @@ public class QProjectActivity extends QProjectList {
 				}
 				return false;
 			}
-		});
+		});*/
 		
     	
 		init("测试", QTestA.class);

@@ -11,8 +11,7 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
 import q.project.QProjectItem;
-import q.util.view.QBaseAdapter;
-import q.view.list.QListViewUtilAutoLoadMore;
+import q.view.QView;
 
 public class ListViewA extends QProjectItem {
 	
@@ -33,7 +32,7 @@ public class ListViewA extends QProjectItem {
 				ListView listView = new ListView(ctx);
 				final Adapter adapter = new Adapter(ctx, dataStr);
 				listView.setAdapter(adapter);
-				new QListViewUtilAutoLoadMore(ctx, listView, null, new QListViewUtilAutoLoadMore.Callback() {
+				new QView.list.autoLoadMore(ctx, listView, null, new QView.list.autoLoadMore.Callback() {
 					
 					@Override
 					public boolean onMoreStart() {
@@ -70,7 +69,7 @@ public class ListViewA extends QProjectItem {
 	}
 
 	
-	class Adapter extends QBaseAdapter<String> {
+	class Adapter extends QView.adapter<String> {
 
 		public Adapter(Context ctx, List<String> datas) {
 			super(ctx, datas);
