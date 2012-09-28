@@ -70,7 +70,7 @@ public class WebViewA extends Activity {
 			new AlertDialog.Builder(ctx).setMessage(html).show();
 		}
 		public void back() {
-			QLog.log("back");
+			QLog.log(this, "back");
 			finish();
 		}
 	}

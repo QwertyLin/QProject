@@ -51,7 +51,7 @@ public class QCameraView extends SurfaceView implements SurfaceHolder.Callback {
         // to draw.
 		//打开摄像头，获得Camera对象
 		camera = Camera.open();
-		QLog.log("surfaceCreated" + QToStr.toStr(camera));
+		QLog.log(this, "surfaceCreated" + QToStr.toStr(camera));
 		try {
 			//设置显示
 			camera.setPreviewDisplay(holder);
@@ -66,14 +66,14 @@ public class QCameraView extends SurfaceView implements SurfaceHolder.Callback {
 	@Override
 	protected void onLayout(boolean changed, int left, int top, int right,
 			int bottom) {
-		QLog.log("onLayout");
+		QLog.log(this, "onLayout");
 		// TODO Auto-generated method stub
 		super.onLayout(changed, left, top, right, bottom);
 	}
 	
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
-		QLog.log("surfaceChanged" + " format=" + format + " width=" + w + " height=" + h);
+		QLog.log(this, "surfaceChanged" + " format=" + format + " width=" + w + " height=" + h);
 		Camera.Parameters para = camera.getParameters();
 		//设置属性
 		para.setPictureFormat(PixelFormat.JPEG);// 设置照片的输出格式
@@ -89,21 +89,21 @@ public class QCameraView extends SurfaceView implements SurfaceHolder.Callback {
 		//Camera.Parameters parameters = camera.getParameters();
 		//parameters.setPreviewSize(w, h);
 		//camera.setParameters(parameters);
-		QLog.log(QToStr.toStr(camera));
+		QLog.log(this, QToStr.toStr(camera));
 	}	
 	
 	private void onInitSize(Camera.Parameters para) {
 		float ratioStd = 0.05f;
 		float ratio;
 		for(Size picSize : para.getSupportedPictureSizes()){
-			QLog.log("supportedPictureSizes " + picSize.width + "*" + picSize.height);
+			QLog.log(this, "supportedPictureSizes " + picSize.width + "*" + picSize.height);
 			for(Size preSize : para.getSupportedPreviewSizes()){
 				if(picSize.width < preSize.width || picSize.height < preSize.height){
 					continue;
 				}
-				QLog.log("supportedPreviewSizes " + preSize.width + "*" + preSize.height);
+				QLog.log(this, "supportedPreviewSizes " + preSize.width + "*" + preSize.height);
 				ratio = Math.abs(1.0f * picSize.width / picSize.height - 1.0f * preSize.width / preSize.height);
-				QLog.log("ratio=" + ratio);
+				QLog.log(this, "ratio=" + ratio);
 				if(ratio <= ratioStd){
 					//保存配置
 					para.setPictureSize(picSize.width, picSize.height);
@@ -117,7 +117,7 @@ public class QCameraView extends SurfaceView implements SurfaceHolder.Callback {
 	//Surface销毁的时候，此方法被调用
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		QLog.log("surfaceDestroyed");
+		QLog.log(this, "surfaceDestroyed");
 		if(camera != null){
 			camera.stopPreview();
 			camera.release();

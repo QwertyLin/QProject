@@ -82,7 +82,7 @@ public class QCamera extends Activity {
 	    }
 
 	    public void surfaceCreated(SurfaceHolder holder) {
-	    	QLog.log("surfaceCreated");
+	    	QLog.log(this, "surfaceCreated");
 	        // The Surface has been created, acquire the camera and tell it where
 	        // to draw.
 	    	mCamera = Camera.open();
@@ -99,7 +99,7 @@ public class QCamera extends Activity {
 	    }
 
 	    public void surfaceDestroyed(SurfaceHolder holder) {
-	    	QLog.log("surfaceDestroyed");
+	    	QLog.log(this, "surfaceDestroyed");
 	        // Surface will be destroyed when we return, so stop the preview.
 	        if (mCamera != null) {
 	            mCamera.stopPreview();
@@ -108,7 +108,7 @@ public class QCamera extends Activity {
 	    }
 
 	    public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
-	    	QLog.log("surfaceChanged");
+	    	QLog.log(this, "surfaceChanged");
 	        // Now that the size is known, set up the camera parameters and begin
 	        // the preview.
 	    	Camera.Parameters parameters = mCamera.getParameters();
@@ -134,7 +134,7 @@ public class QCamera extends Activity {
 	        //parameters.setPictureSize(width,  height);
 	    	//
 	        setPictureAndPreviewSize(parameters);
-	        QLog.log("getJpegQuality" + parameters.getJpegQuality());
+	        QLog.log(this, "getJpegQuality" + parameters.getJpegQuality());
 	        
 	        //
 	        //parameters.set("orientation", "landscape");
@@ -299,18 +299,18 @@ public class QCamera extends Activity {
     	}
 	    
 	    private void printSupportedPreviewSizes(){
-	    	QLog.log("printSupportedPreviewSizes");
+	    	QLog.log(this, "printSupportedPreviewSizes");
 	    	List<Size> list = mCamera.getParameters().getSupportedPreviewSizes();
 	    	for (int i = 0; i < list.size(); i++) {
-				QLog.log("size" + "width="+list.get(i).width+" height="+list.get(i).height);
+				QLog.log(this, "size" + "width="+list.get(i).width+" height="+list.get(i).height);
 			}
 	    }
 	    
 	    private void printSupportedPictureSizes(){
-	    	QLog.log("printSupportedPictureSizes");
+	    	QLog.log(this, "printSupportedPictureSizes");
 	    	List<Size> list = mCamera.getParameters().getSupportedPictureSizes();
 	    	for (int i = 0; i < list.size(); i++) {
-				QLog.log("size" + "width="+list.get(i).width+" height="+list.get(i).height);
+				QLog.log(this, "size" + "width="+list.get(i).width+" height="+list.get(i).height);
 			}
 	    }
 

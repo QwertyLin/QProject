@@ -30,7 +30,7 @@ public class VideoA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				vv.setMediaController(new MediaController(ctx));
+				vv.setMediaController(new MediaController(mCtx));
 			}
 		});
 	}

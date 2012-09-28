@@ -25,38 +25,38 @@ public class GestureDetectorA extends Activity {
 		
 		@Override
 		public boolean onSingleTapUp(MotionEvent e) {
-			QLog.log("onSingleTapUp:" + e.toString());
+			QLog.log(this, "onSingleTapUp:" + e.toString());
 			return true;
 		}
 		
 		@Override
 		public void onShowPress(MotionEvent e) {
-			QLog.log("onShowPress");
+			QLog.log(this, "onShowPress");
 		}
 		
 		@Override
 		public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
 				float distanceY) {
-			QLog.log("onScroll:" + e1.toString());
+			QLog.log(this, "onScroll:" + e1.toString());
 			return true;
 		}
 		
 		@Override
 		public void onLongPress(MotionEvent e) {
-			QLog.log("onLongPress");
+			QLog.log(this, "onLongPress");
 		}
 		
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
-			QLog.log("onFling:" + e1.toString() + " " + e2.toString());
-			QLog.log("velocityX=" + velocityX + " velocityY=" + velocityY);
+			QLog.log(this, "onFling:" + e1.toString() + " " + e2.toString());
+			QLog.log(this, "velocityX=" + velocityX + " velocityY=" + velocityY);
 			return true;
 		}
 		
 		@Override
 		public boolean onDown(MotionEvent e) {
-			QLog.log("onDown");
+			QLog.log(this, "onDown");
 			return true;
 		}
 	};

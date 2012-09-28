@@ -13,31 +13,31 @@ public class ServiceC extends Service {
 	 */
 	@Override
 	public IBinder onBind(Intent intent) {
-		QLog.log("onBind");
+		QLog.log(this, "onBind");
 		return new BinderC();
 	}
 	
 	@Override
 	public boolean onUnbind(Intent arg0) {
-		QLog.log("onUnbind");
+		QLog.log(this, "onUnbind");
 		return super.onUnbind(arg0);
 	}
 	
 	@Override
 	public void onCreate() {
-		QLog.log("onCreate");
+		QLog.log(this, "onCreate");
 		super.onCreate();
 	}
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		QLog.log("onStartCommand");
+		QLog.log(this, "onStartCommand");
 		return super.onStartCommand(intent, flags, startId);
 	}
 	
 	@Override
 	public void onDestroy() {
-		QLog.log("onDestroy");
+		QLog.log(this, "onDestroy");
 		super.onDestroy();
 	}
 	

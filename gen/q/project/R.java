@@ -126,6 +126,7 @@ containing a value of this type.
         public static final int title_bar_background=0x7f020027;
         public static final int title_logo=0x7f020028;
         public static final int translucent=0x7f020029;
+        public static final int view_list_pulltorefresh_icon=0x7f02002a;
     }
     public static final class id {
         public static final int StartBtn=0x7f090029;
@@ -162,9 +163,9 @@ containing a value of this type.
         public static final int btnShare=0x7f09000d;
         public static final int btn_favorite_tabheader=0x7f090027;
         public static final int button=0x7f090014;
-        public static final int content=0x7f090059;
+        public static final int content=0x7f09005a;
         public static final int coorEdit=0x7f09002e;
-        public static final int drawer=0x7f090058;
+        public static final int drawer=0x7f090059;
         public static final int edit=0x7f09002d;
         public static final int etEdit=0x7f09000c;
         public static final int f=0x7f09004d;
@@ -173,7 +174,7 @@ containing a value of this type.
         public static final int get_user_profile=0x7f090021;
         public static final int gpsCheck=0x7f09002f;
         public static final int grid=0x7f090019;
-        public static final int handle=0x7f09005a;
+        public static final int handle=0x7f09005b;
         public static final int image=0x7f09000f;
         public static final int imageFolder=0x7f090057;
         public static final int imageView=0x7f090011;
@@ -198,6 +199,7 @@ containing a value of this type.
         public static final int pull_to_refresh_header=0x7f090033;
         public static final int pull_to_refresh_image=0x7f090035;
         public static final int pull_to_refresh_progress=0x7f090034;
+        public static final int pull_to_refresh_sub_text=0x7f090058;
         public static final int pull_to_refresh_text=0x7f090036;
         public static final int pull_to_refresh_updated_at=0x7f090037;
         public static final int radioGroup=0x7f090050;
@@ -248,9 +250,10 @@ containing a value of this type.
         public static final int view_gallery_item=0x7f030018;
         public static final int view_grid_view=0x7f030019;
         public static final int view_image_view=0x7f03001a;
-        public static final int view_scroll_view=0x7f03001b;
-        public static final int view_slidingdrawer=0x7f03001c;
-        public static final int view_tab_return_result=0x7f03001d;
+        public static final int view_list_pulltorefresh=0x7f03001b;
+        public static final int view_scroll_view=0x7f03001c;
+        public static final int view_slidingdrawer=0x7f03001d;
+        public static final int view_tab_return_result=0x7f03001e;
     }
     public static final class string {
         public static final int app_name=0x7f07000c;

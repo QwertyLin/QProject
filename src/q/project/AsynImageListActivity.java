@@ -15,8 +15,6 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import q.util.QUtil;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;

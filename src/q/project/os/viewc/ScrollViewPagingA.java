@@ -55,9 +55,9 @@ public class ScrollViewPagingA extends Activity {
 	
 	@Override
 	protected void onStop() {
-		QLog.log("onStop");
+		QLog.log(this, "onStop");
 		super.onStop();
-		QLog.log("onStopFinish");
+		QLog.log(this, "onStopFinish");
 	}
 }
 
@@ -114,7 +114,7 @@ class ScrollViewPaging extends FrameLayout {
 	  
 	  @Override
 		protected void onLayout(boolean changed, int l, int t, int r, int b) {
-			QLog.log("onLayout");
+			QLog.log(this, "onLayout");
 			if (width == 0) {
 				width = getWidth();
 				height = getHeight();
@@ -131,7 +131,7 @@ class ScrollViewPaging extends FrameLayout {
 	  @Override
 	  protected void dispatchDraw(Canvas canvas) {
 		  //以横线平铺的方式绘制背景。
-		  QLog.log("dispatchDraw");
+		  QLog.log(this, "dispatchDraw");
 	    if (null != bgDrawable) {
 	      bgDrawable.setBounds(0, 0, childCount * width, height);
 	      bgDrawable.draw(canvas);
@@ -144,43 +144,43 @@ class ScrollViewPaging extends FrameLayout {
 
 	  @Override
 	  public boolean onInterceptTouchEvent(MotionEvent event) {
-		  QLog.log("onInterceptTouchEvent");
+		  QLog.log(this, "onInterceptTouchEvent");
 	    final int x = (int) event.getX();
 	    boolean flag = false;
 	    
 	    switch(event.getAction()){
 	      case MotionEvent.ACTION_DOWN:
-	        QLog.log("onInterceptTouchEvent ACTION_DOWN");
+	        QLog.log(this, "onInterceptTouchEvent ACTION_DOWN");
 	        lastX = x;
 	        break;
 	      case MotionEvent.ACTION_MOVE:
-	    	  QLog.log("onInterceptTouchEvent ACTION_MOVE");
+	    	  QLog.log(this, "onInterceptTouchEvent ACTION_MOVE");
 	        final int deltaX = (int) (lastX - x);
 	        if (Math.abs(deltaX) > TOUCH_SLOP) {
 	          flag = true;
 	        }
 	        break;
 	      case MotionEvent.ACTION_UP:
-	    	  QLog.log("onInterceptTouchEvent ACTION_UP");
+	    	  QLog.log(this, "onInterceptTouchEvent ACTION_UP");
 	        break;
 	    }
 	    return flag;
 	  }
 	  
 	  public boolean onTouchEvent(MotionEvent event) {
-		  QLog.log("onTouchEvent");
+		  QLog.log(this, "onTouchEvent");
 	    final int x = (int) event.getX();
 
 	    switch (event.getAction()) {
 	      case MotionEvent.ACTION_DOWN:
-	    	  QLog.log("onTouchEvent ACTION_DOWN");
+	    	  QLog.log(this, "onTouchEvent ACTION_DOWN");
 	        if (!scroller.isFinished()) {
 	          scroller.abortAnimation();
 	        }
 
 	        break;
 	      case MotionEvent.ACTION_MOVE:
-	    	 QLog.log("onTouchEvent ACTION_MOVE");
+	    	 QLog.log(this, "onTouchEvent ACTION_MOVE");
 	        final int deltaX = (int) (lastX - x);
 	        if (Math.abs(deltaX) < TOUCH_SLOP) {
 	          break;
@@ -200,7 +200,7 @@ class ScrollViewPaging extends FrameLayout {
 	        break;
 	      case MotionEvent.ACTION_UP:
 	      case MotionEvent.ACTION_CANCEL:
-	    	  QLog.log("onTouchEvent ACTION_UP || ACTION_CANCEL");
+	    	  QLog.log(this, "onTouchEvent ACTION_UP || ACTION_CANCEL");
 	        int dx = (getScrollX() + width / 2) / width;
 	        if (dx < 0) {
 	          dx = 0;
@@ -220,10 +220,10 @@ class ScrollViewPaging extends FrameLayout {
 	  
 	  @Override
 	  public void computeScroll() {
-		  QLog.log("computeScroll");
+		  QLog.log(this, "computeScroll");
 	    if (scroller.computeScrollOffset()) {
 	      scrollTo(scroller.getCurrX(), scroller.getCurrY());
-	      QLog.log("scrollTo" + "x=" + scroller.getCurrX() + " y=" + scroller.getCurrY());
+	      QLog.log(this, "scrollTo" + "x=" + scroller.getCurrX() + " y=" + scroller.getCurrY());
 	      invalidate();
 	    }
 	  }

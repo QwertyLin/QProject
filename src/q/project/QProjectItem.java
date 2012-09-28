@@ -13,13 +13,13 @@ public abstract class QProjectItem extends Activity {
 	protected LinearLayout layout;
 	protected Button btn;
 	private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10,btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19, btn20;
-	protected Context ctx;
+	protected Context mCtx;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.q_project);
-		ctx = this;
+		mCtx = this;
 		//
 		layout = (LinearLayout)findViewById(R.id.layout);
 		btn1 = (Button)findViewById(R.id.btn1);

@@ -11,7 +11,10 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
 import q.project.QProjectItem;
-import q.view.QView;
+import q.util.Q;
+import q.view.list.QAutoLoadMoreListView.OnLoadMoreListener;
+import q.view.list.pulltorefresh.PullToRefreshBase;
+import q.view.list.pulltorefresh.PullToRefreshBase.OnRefreshListener;
 
 public class ListViewA extends QProjectItem {
 	
@@ -22,54 +25,95 @@ public class ListViewA extends QProjectItem {
 		dataStr.add("a");
 		dataStr.add("b");
 		dataStr.add("c");
+		dataStr.add("a");
+		dataStr.add("b");
+		dataStr.add("c");
+		dataStr.add("a");
+		dataStr.add("b");
+		dataStr.add("c");
+		final Adapter adapter = new Adapter(mCtx, dataStr);
 		//
 		btn = getNextButton();
-		btn.setText("QListViewUtilAutoLoadMore 自动加载更多");
+		btn.setText("原始");
 		btn.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				ListView listView = new ListView(ctx);
-				final Adapter adapter = new Adapter(ctx, dataStr);
+				ListView listView = new ListView(mCtx);
 				listView.setAdapter(adapter);
-				new QView.list.autoLoadMore(ctx, listView, null, new QView.list.autoLoadMore.Callback() {
-					
-					@Override
-					public boolean onMoreStart() {
-						return true;
-					}
+				dialog(listView);
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("初始化");
+		btn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ListView listView = new ListView(mCtx);
+				Q.view.list.util.init(listView);
+				listView.setAdapter(adapter);
+				dialog(listView);
+			}
+		});
+		//
+		btn = getNextButton();
+		btn.setText("自动加载更多");
+		btn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ListView listView = new ListView(mCtx);
+				new Q.view.list.autoLoadMore(mCtx, listView, adapter, null, 
+						new Q.view.list.autoLoadMore.OnLoadMoreListener() {
 
 					@Override
-					public void onMoreFinish() {
-						adapter.notifyDataSetChanged();
-					}
-
-					@Override
-					public boolean onMoreOnThread() {
+					public boolean onBackground() {
 						SystemClock.sleep(1500);
-						if(dataStr.size() < 10){
+						if(dataStr.size() < 20){
 							dataStr.addAll(dataStr);
 							return true;
 						}
 						return false;
 					}
-
+					@Override
+					public void onStart() {}
+					@Override
+					public void onFinish() {}
 					@Override
 					public void onScroll(AbsListView view,
 							int firstVisibleItem, int visibleItemCount,
 							int totalItemCount) {}
-
-					
 				});
-		        listView.setAdapter(adapter);
 				dialog(listView);
 			}
 		});
 		//
+		btn = getNextButton();
+		btn.setText("下拉刷新");
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				final Q.view.list.pullToRefresh listPullToRefresh =  new Q.view.list.pullToRefresh(mCtx, adapter,
+						new Q.view.list.pullToRefresh.OnRefreshListener() {
+					@Override
+					public void onStart() { }
+					@Override
+					public void onFinish() {}
+					@Override
+					public void onBackground() {
+						dataStr.add("下拉");
+						SystemClock.sleep(2000);
+					}
+				});
+				dialog(listPullToRefresh);
+			}
+		});
 	}
 
 	
-	class Adapter extends QView.adapter<String> {
+	class Adapter extends Q.view.adapter.base<String> {
 
 		public Adapter(Context ctx, List<String> datas) {
 			super(ctx, datas);

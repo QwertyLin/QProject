@@ -27,7 +27,7 @@ public class ServiceA extends QProjectItem {
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				bindService(new Intent(ctx, ServiceC.class), conn, Service.BIND_AUTO_CREATE);
+				bindService(new Intent(mCtx, ServiceC.class), conn, Service.BIND_AUTO_CREATE);
 			}
 		});
 		//
@@ -56,7 +56,7 @@ public class ServiceA extends QProjectItem {
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startService(new Intent(ctx, ServiceC.class));
+				startService(new Intent(mCtx, ServiceC.class));
 			}
 		});
 		//
@@ -65,7 +65,7 @@ public class ServiceA extends QProjectItem {
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				stopService(new Intent(ctx, ServiceC.class));
+				stopService(new Intent(mCtx, ServiceC.class));
 			}
 		});
 		

@@ -20,7 +20,7 @@ public class AlarmManagerA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				PendingIntent pi = PendingIntent.getActivity(ctx, 0, new Intent(ctx, QProjectActivity.class), 0);
+				PendingIntent pi = PendingIntent.getActivity(mCtx, 0, new Intent(mCtx, QProjectActivity.class), 0);
 				AlarmManager am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 				am.set(AlarmManager.RTC_WAKEUP, new Date().getTime() + 3000, pi);
 			}

@@ -1,7 +1,7 @@
 package q.project.os.intent;
 
 import q.project.QProjectItem;
-import q.util.QUtil;
+import q.util.Q;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -62,7 +62,7 @@ public class IntentToOutA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				QUtil.intent.util.contentImage(IntentToOutA.this, REQUEST_IMAGE);
+				Q.intent.util.contentImage(IntentToOutA.this, REQUEST_IMAGE);
 			}
 		});
 		//
@@ -71,7 +71,7 @@ public class IntentToOutA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				QUtil.intent.util.mediaCamera(IntentToOutA.this, REQUEST_IMAGE);
+				Q.intent.util.mediaCamera(IntentToOutA.this, REQUEST_IMAGE);
 			}
 		});
 		//
@@ -80,7 +80,7 @@ public class IntentToOutA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				QUtil.intent.util.mapGoogle(ctx, "23.122359", "113.302746", null);
+				Q.intent.util.mapGoogle(mCtx, "23.122359", "113.302746", null);
 			}
 		});
 	}
@@ -93,11 +93,11 @@ public class IntentToOutA extends QProjectItem {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch(requestCode){
 		case REQUEST_IMAGE:
-			Bitmap bm = QUtil.intent.util.resultBitmap(this, data);
+			Bitmap bm = Q.intent.util.resultBitmap(this, data);
 			if(bm != null){
-				ImageView iv = new ImageView(ctx);
+				ImageView iv = new ImageView(mCtx);
 				iv.setImageBitmap(bm);
-				new AlertDialog.Builder(ctx).setView(iv).show();
+				new AlertDialog.Builder(mCtx).setView(iv).show();
 			}
 			break;
 		}

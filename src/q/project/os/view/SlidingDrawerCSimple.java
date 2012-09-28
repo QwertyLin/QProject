@@ -138,10 +138,10 @@ public class SlidingDrawerCSimple extends LinearLayout {
 	protected void dispatchDraw(Canvas canvas) {
 		//主要用于处理打开抽屉或手动滑动抽屉时的子布局显示
 		if (mState == State.ABOUT_TO_ANIMATE && !mIsShrinking) {
-			QLog.log("dispatchDraw");
-			QLog.log("state ABOUT_TO_ANIMATE");
+			QLog.log(this, "dispatchDraw");
+			QLog.log(this, "state ABOUT_TO_ANIMATE");
 			int delta = mContentWidth;
-			QLog.log("delta" + delta);
+			QLog.log(this, "delta" + delta);
 			canvas.translate(delta, 0);
 		}
 		if (mState == State.TRACKING || mState == State.FLYING) {
@@ -163,10 +163,10 @@ public class SlidingDrawerCSimple extends LinearLayout {
 		int initX;
 		boolean setInitialPosition;
 		public boolean onTouch(View v, MotionEvent event) {
-			QLog.log("onTouch");
+			QLog.log(this, "onTouch");
 			int action = event.getAction();
 			if (action == MotionEvent.ACTION_DOWN) {
-				QLog.log("action ACTION_DOWN");
+				QLog.log(this, "action ACTION_DOWN");
 				initX = 0;
 				if (mContent.getVisibility() == GONE) {
 					// since we may not know content dimensions we use factors here
@@ -179,7 +179,7 @@ public class SlidingDrawerCSimple extends LinearLayout {
 					initX *= mContentWidth;
 					// ... and set initial panel's position
 					mGestureListener.setScroll(initX, 0); //为滑动设置偏移量
-					QLog.log("mGestureListener.setScroll" + "x=" + initX);
+					QLog.log(this, "mGestureListener.setScroll" + "x=" + initX);
 					setInitialPosition = false;
 					// for offsetLocation we have to invert values
 					initX = -initX;
@@ -201,15 +201,15 @@ public class SlidingDrawerCSimple extends LinearLayout {
 
 	Runnable startAnimation = new Runnable() {
 		public void run() {
-			QLog.log("startAnimation");
+			QLog.log(this, "startAnimation");
 			// this is why we post this Runnable couple of lines above:
 			// now its save to use mContent.getHeight() && mContent.getWidth()
 			TranslateAnimation animation;
 			int fromXDelta = 0, toXDelta = 0, fromYDelta = 0, toYDelta = 0;
 			if (mState == State.FLYING) {
-				QLog.log("state FLYING");
+				QLog.log(this, "state FLYING");
 				mIsShrinking = (false) ^ (mVelocity > 0);
-				QLog.log("mIsShrinking" + String.valueOf(mIsShrinking));
+				QLog.log(this, "mIsShrinking" + String.valueOf(mIsShrinking));
 			}
 			int calculatedDuration;
 				int width = mContentWidth;
@@ -282,7 +282,7 @@ public class SlidingDrawerCSimple extends LinearLayout {
 			scrollY = initScrollY;
 		}
 		public boolean onDown(MotionEvent e) {
-			QLog.log("onDown");
+			QLog.log(this, "onDown");
 			scrollX = scrollY = 0;
 			if (mState != State.READY) {
 				// we are animating or just about to animate
@@ -325,7 +325,7 @@ public class SlidingDrawerCSimple extends LinearLayout {
 		}
 		//单击
 		public boolean onSingleTapUp(MotionEvent e) {
-			QLog.log("onSingleTapUp");
+			QLog.log(this, "onSingleTapUp");
 			// simple tap: click
 			post(startAnimation);
 			return true;

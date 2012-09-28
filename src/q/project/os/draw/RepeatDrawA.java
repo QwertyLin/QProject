@@ -80,7 +80,7 @@ class DrawView extends View {
 	}
 
 	protected void onDraw(Canvas canvas) {
-		QLog.log("onDraw");
+		QLog.log(this, "onDraw");
 		canvas.drawColor(Color.WHITE);//背景
 		//画笔
 		Paint paint = new Paint();

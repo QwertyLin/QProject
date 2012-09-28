@@ -23,7 +23,7 @@ public class ConnectivityManagerA extends QProjectItem {
 		        if (info != null) {
 		            isAvailable = info.isAvailable();
 		        }
-		        new AlertDialog.Builder(ctx).setMessage(String.valueOf(isAvailable)).show();
+		        new AlertDialog.Builder(mCtx).setMessage(String.valueOf(isAvailable)).show();
 			}
 		});
 		//
@@ -38,7 +38,7 @@ public class ConnectivityManagerA extends QProjectItem {
 				if(info != null && info.getType() == ConnectivityManager.TYPE_WIFI){
 					isAvailable = true;
 		        }
-		        new AlertDialog.Builder(ctx).setMessage(String.valueOf(isAvailable)).show();
+		        new AlertDialog.Builder(mCtx).setMessage(String.valueOf(isAvailable)).show();
 			}
 		});
 	}

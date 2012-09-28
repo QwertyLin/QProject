@@ -16,7 +16,7 @@ public class ManagerA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new AlertDialog.Builder(ctx).setMessage(QToStr.toStr(ctx, QPackageUtil.list(ctx))).show();
+				new AlertDialog.Builder(mCtx).setMessage(QToStr.toStr(mCtx, QPackageUtil.list(mCtx))).show();
 			}
 		});
 	}

@@ -13,7 +13,6 @@ import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
 import q.util.QUtil4A;
-import q.util.QUtil;
 import q.util.QUtil4SystemService;
 import q.util.a.QDrawable;
 import q.util.view.imageView.AnimationImageView;

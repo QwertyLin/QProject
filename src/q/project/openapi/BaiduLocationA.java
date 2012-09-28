@@ -28,10 +28,10 @@ public class BaiduLocationA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				location = new BaiduLocationUtil(ctx, new BaiduLocationUtil.Callback() {
+				location = new BaiduLocationUtil(mCtx, new BaiduLocationUtil.Callback() {
 					@Override
 					public void onFinish(double latitude, double longitude, String address) {
-						Toast.makeText(ctx, 
+						Toast.makeText(mCtx, 
 								"latitude=" + latitude + " longitude=" + longitude + " address=" + address, Toast.LENGTH_SHORT).show();
 					}
 				});

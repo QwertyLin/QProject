@@ -16,7 +16,7 @@ public class NotificationA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				QNotificationUtil.show(ctx, 1, android.R.drawable.stat_sys_warning, "标题", "内容", PendingIntent.getActivity(ctx, 0, new Intent(), 0));
+				QNotificationUtil.show(mCtx, 1, android.R.drawable.stat_sys_warning, "标题", "内容", PendingIntent.getActivity(mCtx, 0, new Intent(), 0));
 			}
 		});
 		//
@@ -25,7 +25,7 @@ public class NotificationA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				QNotificationUtil.cancel(ctx, 1);
+				QNotificationUtil.cancel(mCtx, 1);
 			}
 		});
 	}
