@@ -2,8 +2,8 @@ package q.project.os.view;
 
 import q.project.QProjectItem;
 import q.project.R;
-import q.util.Q;
-import q.view.text.QRotateTextView;
+import qv.text.QRotateTextView;
+import qv.text.QTextViewUtil;
 import android.app.AlertDialog;
 import android.net.Uri;
 import android.view.View;
@@ -34,7 +34,7 @@ public class TextViewA extends QProjectItem {
 				String src = "==<font color='red'>红字</font>==<a href='http://www.baidu.com'>超链接</a>==";
 				tvOld.setText(src);
 				tvNew.setText(src);
-				Q.view.text.util.clearHtml(tvNew);
+				QTextViewUtil.clearHtml(tvNew);
 			}
 		});
 		//
@@ -46,7 +46,7 @@ public class TextViewA extends QProjectItem {
 				String src = "==<font color='red'>红字</font>==<a href='http://www.baidu.com'>超链接</a>==";
 				tvOld.setText(src);
 				tvNew.setText(src);
-				Q.view.text.util.formatHtml(tvNew);
+				QTextViewUtil.formatHtml(tvNew);
 			}
 		});
 		//
@@ -58,7 +58,7 @@ public class TextViewA extends QProjectItem {
 				String src = "==<font color='red'>红字</font>==<a href='http://www.baidu.com'>超链接</a>==";
 				tvOld.setText(src);
 				tvNew.setText(src);
-				Q.view.text.util.formatHtmlWithAnchor(mCtx, tvNew, 0xFFFF0000, true, new Q.view.text.util.AnchorClickListener() {
+				QTextViewUtil.formatHtmlWithAnchor(mCtx, tvNew, 0xFFFF0000, true, new QTextViewUtil.AnchorClickListener() {
 					@Override
 					public void onClick(Uri uri, String text) {
 						Toast.makeText(mCtx, text, Toast.LENGTH_SHORT).show();
@@ -75,7 +75,7 @@ public class TextViewA extends QProjectItem {
 				String src = "=={图片}=={图片}==";
 				tvOld.setText(src);
 				tvNew.setText(src);
-				Q.view.text.util.formatHtmlWithImage(mCtx, tvNew, "{图片}", R.drawable.ic_launcher);
+				QTextViewUtil.formatHtmlWithImage(mCtx, tvNew, "{图片}", R.drawable.ic_launcher);
 			}
 		});
 		//

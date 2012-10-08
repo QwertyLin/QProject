@@ -1,8 +1,8 @@
 package q.project.os.app;
 
 import q.project.QProjectItem;
-import q.util.QToStr;
-import q.util.os.QPackageUtil;
+import q.QToStr;
+import q.os.QPackageUtil;
 import android.app.AlertDialog;
 import android.view.View;
 import android.view.View.OnClickListener;

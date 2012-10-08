@@ -3,7 +3,7 @@ package q.project;
 import java.util.List;
 
 import q.util.a.QContact;
-import q.util.bitmap.QBitmapUtil;
+import q.bitmap.QBitmapUtil;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

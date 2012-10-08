@@ -1,6 +1,6 @@
 package q.project.os.draw;
 
-import q.util.QLog;
+import q.QLog;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;

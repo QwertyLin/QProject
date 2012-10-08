@@ -1,12 +1,11 @@
 package q.project;
 
-import q.util.Q;
 
 public class QProjectActivity extends QProjectList {
 
 	@Override
 	protected void onInit() {
-		    	
+				    	
 		init("测试", QTestA.class);
     	init("其他", q.project.other.A.class);
     	init("框架", q.project.framework.A.class);

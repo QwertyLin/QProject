@@ -1,7 +1,7 @@
 package q.project.os.app;
 
 import q.project.QProjectItem;
-import q.util.os.QNotificationUtil;
+import q.os.QNotificationUtil;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.view.View;

@@ -1,9 +1,9 @@
 package q.project.os.app;
 
 import java.io.IOException;
-import q.util.QLog;
-import q.util.QToStr;
-import q.util.os.QWindowUtil;
+import q.QLog;
+import q.QToStr;
+import q.os.QWindowUtil;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;

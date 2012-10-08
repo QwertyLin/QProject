@@ -1,7 +1,7 @@
 package q.project.os.app;
 
 import q.project.R;
-import q.util.bitmap.QBitmapUtil;
+import q.bitmap.QBitmapUtil;
 
 import android.app.Activity;
 import android.app.AlertDialog;

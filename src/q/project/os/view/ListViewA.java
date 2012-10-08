@@ -11,10 +11,10 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
 import q.project.QProjectItem;
-import q.util.Q;
-import q.view.list.QAutoLoadMoreListView.OnLoadMoreListener;
-import q.view.list.pulltorefresh.PullToRefreshBase;
-import q.view.list.pulltorefresh.PullToRefreshBase.OnRefreshListener;
+import qv.adapter.QAdapterBase;
+import qv.list.QAutoLoadMoreListViewFilter;
+import qv.list.QListViewUtil;
+import qv.list.QPullToRefreshListView;
 
 public class ListViewA extends QProjectItem {
 	
@@ -52,7 +52,7 @@ public class ListViewA extends QProjectItem {
 			@Override
 			public void onClick(View v) {
 				ListView listView = new ListView(mCtx);
-				Q.view.list.util.init(listView);
+				QListViewUtil.init(listView);
 				listView.setAdapter(adapter);
 				dialog(listView);
 			}
@@ -65,8 +65,8 @@ public class ListViewA extends QProjectItem {
 			@Override
 			public void onClick(View v) {
 				ListView listView = new ListView(mCtx);
-				new Q.view.list.autoLoadMore(mCtx, listView, adapter, null, 
-						new Q.view.list.autoLoadMore.OnLoadMoreListener() {
+				new QAutoLoadMoreListViewFilter(mCtx, listView, adapter, null, 
+						new QAutoLoadMoreListViewFilter.OnLoadMoreListener() {
 
 					@Override
 					public boolean onBackground() {
@@ -95,8 +95,8 @@ public class ListViewA extends QProjectItem {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				final Q.view.list.pullToRefresh listPullToRefresh =  new Q.view.list.pullToRefresh(mCtx, adapter,
-						new Q.view.list.pullToRefresh.OnRefreshListener() {
+				final QPullToRefreshListView listPullToRefresh =  new QPullToRefreshListView(mCtx, adapter,
+						new QPullToRefreshListView.OnRefreshListener() {
 					@Override
 					public void onStart() { }
 					@Override
@@ -113,7 +113,7 @@ public class ListViewA extends QProjectItem {
 	}
 
 	
-	class Adapter extends Q.view.adapter.base<String> {
+	class Adapter extends QAdapterBase<String> {
 
 		public Adapter(Context ctx, List<String> datas) {
 			super(ctx, datas);

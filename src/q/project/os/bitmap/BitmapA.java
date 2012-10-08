@@ -2,11 +2,11 @@ package q.project.os.bitmap;
 
 import q.project.QProjectItem;
 import q.project.R;
-import q.util.bitmap.QBitmapDecoder;
-import q.util.bitmap.QBitmapFilter;
-import q.util.bitmap.QBitmapFilterColor;
-import q.util.bitmap.QBitmapFilterMatrix;
-import q.util.bitmap.QBitmapUtil;
+import q.bitmap.QBitmapDecoder;
+import q.bitmap.QBitmapFilter;
+import q.bitmap.QBitmapFilterColor;
+import q.bitmap.QBitmapFilterMatrix;
+import q.bitmap.QBitmapUtil;
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

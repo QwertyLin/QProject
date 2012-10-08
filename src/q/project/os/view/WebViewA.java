@@ -1,6 +1,6 @@
 package q.project.os.view;
 
-import q.util.QLog;
+import q.QLog;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;

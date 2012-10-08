@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import q.project.QProjectItem;
-import q.util.QRegExpUtil;
+import q.QRegExpUtil;
 
 public class RegExpA extends QProjectItem {
 

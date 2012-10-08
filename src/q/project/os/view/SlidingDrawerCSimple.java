@@ -1,6 +1,6 @@
 package q.project.os.view;
 
-import q.util.QLog;
+import q.QLog;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.view.GestureDetector;
