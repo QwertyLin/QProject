@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
+import q.QLog;
 import q.project.QProjectItem;
 import qv.adapter.QAdapterBase;
 import qv.list.QAutoLoadMoreListViewFilter;
@@ -71,6 +72,7 @@ public class ListViewA extends QProjectItem {
 					@Override
 					public boolean onBackground() {
 						SystemClock.sleep(1500);
+						System.out.println(dataStr.size());
 						if(dataStr.size() < 20){
 							dataStr.addAll(dataStr);
 							return true;
@@ -81,10 +83,6 @@ public class ListViewA extends QProjectItem {
 					public void onStart() {}
 					@Override
 					public void onFinish() {}
-					@Override
-					public void onScroll(AbsListView view,
-							int firstVisibleItem, int visibleItemCount,
-							int totalItemCount) {}
 				});
 				dialog(listView);
 			}
