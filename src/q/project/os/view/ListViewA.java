@@ -111,7 +111,7 @@ public class ListViewA extends QProjectItem {
 	}
 
 	
-	class Adapter extends QAdapterBase<String> {
+	class Adapter extends QAdapterBase<String, Adapter.Holder> {
 
 		public Adapter(Context ctx, List<String> datas) {
 			super(ctx, datas);
@@ -123,15 +123,14 @@ public class ListViewA extends QProjectItem {
 		}
 
 		@Override
-		protected Object getViewHolder(View v) {
+		protected Holder getHolder(View v) {
 			Holder h = new Holder();
 			h.tv = (TextView)v.findViewById(android.R.id.text1);
 			return h;
 		}
 
 		@Override
-		protected void onInitItem(int position, String data, Object viewHolder) {
-			Holder h = (Holder)viewHolder;
+		protected void initItem(int position, String data, Holder h) {
 			h.tv.setText(data);
 		}
 		
