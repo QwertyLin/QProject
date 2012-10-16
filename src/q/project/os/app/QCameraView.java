@@ -3,7 +3,7 @@ package q.project.os.app;
 import java.io.IOException;
 import q.QLog;
 import q.QToStr;
-import q.os.QWindowUtil;
+import q.os.WindowUtil;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -36,7 +36,7 @@ public class QCameraView extends SurfaceView implements SurfaceHolder.Callback {
 	public QCameraView(Context ctx) {
 		super(ctx);
 		this.ctx = ctx;
-		QWindowUtil.setScreenKeepOn((Activity)ctx);
+		WindowUtil.setScreenKeepOn((Activity)ctx);
 		// Install a SurfaceHolder.Callback so we get notified when the
         // underlying surface is created and destroyed.
 		SurfaceHolder holder = getHolder();

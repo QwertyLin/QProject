@@ -13,13 +13,16 @@ import android.widget.TextView;
 import q.QLog;
 import q.project.QProjectItem;
 import qv.adapter.QAdapterBase;
-import qv.list.QAutoLoadMoreListViewFilter;
-import qv.list.QListViewUtil;
+import qv.list.ListViewUtil;
 import qv.list.QPullToRefreshListView;
+import qv.list.more.LvAutoMoreEntity;
+import qv.list.more.LvAutoMoreUtil;
+import qv.list.more.OnLvAutoMoreListener;
 
-public class ListViewA extends QProjectItem {
+public class ListViewA extends QProjectItem implements OnLvAutoMoreListener {
 	
 	List<String> dataStr = new ArrayList<String>();
+	Adapter adapter;
 
 	@Override
 	protected void onInit() {
@@ -32,7 +35,7 @@ public class ListViewA extends QProjectItem {
 		dataStr.add("a");
 		dataStr.add("b");
 		dataStr.add("c");
-		final Adapter adapter = new Adapter(mCtx, dataStr);
+		adapter = new Adapter(mCtx, dataStr);
 		//
 		btn = getNextButton();
 		btn.setText("原始");
@@ -53,7 +56,7 @@ public class ListViewA extends QProjectItem {
 			@Override
 			public void onClick(View v) {
 				ListView listView = new ListView(mCtx);
-				QListViewUtil.init(listView);
+				ListViewUtil.init(listView);
 				listView.setAdapter(adapter);
 				dialog(listView);
 			}
@@ -66,24 +69,8 @@ public class ListViewA extends QProjectItem {
 			@Override
 			public void onClick(View v) {
 				ListView listView = new ListView(mCtx);
-				new QAutoLoadMoreListViewFilter(mCtx, listView, adapter, null, 
-						new QAutoLoadMoreListViewFilter.OnLoadMoreListener() {
-
-					@Override
-					public boolean onBackground() {
-						SystemClock.sleep(1500);
-						System.out.println(dataStr.size());
-						if(dataStr.size() < 20){
-							dataStr.addAll(dataStr);
-							return true;
-						}
-						return false;
-					}
-					@Override
-					public void onStart() {}
-					@Override
-					public void onFinish() {}
-				});
+				LvAutoMoreUtil.init(new LvAutoMoreEntity(0, ListViewA.this, listView, null));
+				listView.setAdapter(adapter);
 				dialog(listView);
 			}
 		});
@@ -108,6 +95,29 @@ public class ListViewA extends QProjectItem {
 				dialog(listPullToRefresh);
 			}
 		});
+	}
+	
+	@Override
+	public void onLvAutoMoreStart(LvAutoMoreEntity en) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onLvAutoMoreBackground(LvAutoMoreEntity en) {
+		SystemClock.sleep(1500);
+		System.out.println(dataStr.size());
+		dataStr.addAll(dataStr);
+		if(dataStr.size() > 20){
+			en.setEnable(false);
+		}
+	}
+
+
+	@Override
+	public void onLvAutoMoreFinish(LvAutoMoreEntity en) {
+		adapter.notifyDataSetChanged();
 	}
 
 	
@@ -140,4 +150,7 @@ public class ListViewA extends QProjectItem {
 
 		
 	}
+
+
+	
 }
