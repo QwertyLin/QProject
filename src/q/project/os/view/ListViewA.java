@@ -7,17 +7,15 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
-import q.QLog;
 import q.project.QProjectItem;
 import qv.adapter.QAdapterBase;
 import qv.list.ListViewUtil;
 import qv.list.QPullToRefreshListView;
-import qv.list.more.LvAutoMoreEntity;
-import qv.list.more.LvAutoMoreUtil;
-import qv.list.more.OnLvAutoMoreListener;
+import qv.list.autoMore.LvAutoMoreEntity;
+import qv.list.autoMore.LvAutoMoreUtil;
+import qv.list.autoMore.OnLvAutoMoreListener;
 
 public class ListViewA extends QProjectItem implements OnLvAutoMoreListener {
 	
@@ -110,7 +108,7 @@ public class ListViewA extends QProjectItem implements OnLvAutoMoreListener {
 		System.out.println(dataStr.size());
 		dataStr.addAll(dataStr);
 		if(dataStr.size() > 20){
-			en.setEnable(false);
+			LvAutoMoreUtil.setEnable(en, false);
 		}
 	}
 

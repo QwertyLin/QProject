@@ -1,35 +1,48 @@
 package q.project;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import qv.web.oauth.OnWvOauthListener;
+import qv.web.oauth.WvOauthEntity;
+import qv.web.oauth.WvOauthHandleSinaWeibo;
+import qv.web.oauth.WvOauthUtil;
 
 
-import android.content.Context;
-import android.location.Location;
-import android.telephony.NeighboringCellInfo;
-import android.telephony.TelephonyManager;
-import android.telephony.cdma.CdmaCellLocation;
-import android.telephony.gsm.GsmCellLocation;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.app.Activity;
+import android.os.Bundle;
+import android.webkit.WebView;
 
-public class QTestA extends QProjectItem {
+public class QTestA extends Activity implements OnWvOauthListener {
 
 	@Override
-	protected void onInit() {
+	protected void onCreate(Bundle savedInstanceState) {
+		System.out.println("QTestA");
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		WebView web = new WebView(this);
+		setContentView(web);
+		WvOauthUtil.init(new WvOauthEntity(0, this, web, new WvOauthHandleSinaWeibo()));
+	}
 
-		List<String> list = new ArrayList<String>();
-		list.add("a");
-		list.add("b");
+	@Override
+	public void onWvOauthLoadingFinish(WvOauthEntity en) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onWvOauthAuthing(WvOauthEntity en) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onWvOauthSuccess(WvOauthEntity en) {
+		System.out.println(en.getToken().getToken());
+	}
+
+	@Override
+	public void onWvOauthError(WvOauthEntity en) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
