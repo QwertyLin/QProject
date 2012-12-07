@@ -52,7 +52,6 @@ public class CameraA extends Activity {
 		layoutBtn.addView(btn);		
 		btn.setText("自动对焦");
 		btn.setOnClickListener(new OnClickListener() {
-			int i = 0;
 			@Override
 			public void onClick(View v) {
 				cv.autoFocus();

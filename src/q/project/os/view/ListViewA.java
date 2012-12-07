@@ -11,13 +11,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import q.project.QProjectItem;
 import qv.adapter.QAdapterBase;
+import qv.list.EndlessListViewHelper.OnEndlessListViewListener;
 import qv.list.ListViewUtil;
 import qv.list.QPullToRefreshListView;
-import qv.list.autoMore.LvAutoMoreEntity;
-import qv.list.autoMore.LvAutoMoreUtil;
-import qv.list.autoMore.OnLvAutoMoreListener;
 
-public class ListViewA extends QProjectItem implements OnLvAutoMoreListener {
+public class ListViewA extends QProjectItem {
 	
 	List<String> dataStr = new ArrayList<String>();
 	Adapter adapter;
@@ -61,19 +59,6 @@ public class ListViewA extends QProjectItem implements OnLvAutoMoreListener {
 		});
 		//
 		btn = getNextButton();
-		btn.setText("自动加载更多");
-		btn.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				ListView listView = new ListView(mCtx);
-				LvAutoMoreUtil.init(new LvAutoMoreEntity(0, ListViewA.this, listView, null));
-				listView.setAdapter(adapter);
-				dialog(listView);
-			}
-		});
-		//
-		btn = getNextButton();
 		btn.setText("下拉刷新");
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
@@ -94,30 +79,6 @@ public class ListViewA extends QProjectItem implements OnLvAutoMoreListener {
 			}
 		});
 	}
-	
-	@Override
-	public void onLvAutoMoreStart(LvAutoMoreEntity en) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void onLvAutoMoreBackground(LvAutoMoreEntity en) {
-		SystemClock.sleep(1500);
-		System.out.println(dataStr.size());
-		dataStr.addAll(dataStr);
-		if(dataStr.size() > 20){
-			LvAutoMoreUtil.setEnable(en, false);
-		}
-	}
-
-
-	@Override
-	public void onLvAutoMoreFinish(LvAutoMoreEntity en) {
-		adapter.notifyDataSetChanged();
-	}
-
 	
 	class Adapter extends QAdapterBase<String, Adapter.Holder> {
 

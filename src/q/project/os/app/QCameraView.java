@@ -31,11 +31,9 @@ public class QCameraView extends SurfaceView implements SurfaceHolder.Callback {
 	
 	public Camera camera;
 	private int orientation = 90; //镜头方向，默认是横向的，这里旋转90度成竖向。
-	private Context ctx;
 	
 	public QCameraView(Context ctx) {
 		super(ctx);
-		this.ctx = ctx;
 		WindowUtil.setScreenKeepOn((Activity)ctx);
 		// Install a SurfaceHolder.Callback so we get notified when the
         // underlying surface is created and destroyed.
