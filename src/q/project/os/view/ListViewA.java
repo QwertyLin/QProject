@@ -10,14 +10,19 @@ import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import q.project.QProjectItem;
-import qv.adapter.QAdapterBase;
 import qv.list.EndlessListViewHelper.OnEndlessListViewListener;
 import qv.list.ListViewUtil;
 import qv.list.QPullToRefreshListView;
 
 public class ListViewA extends QProjectItem {
+
+	@Override
+	protected void onInit() {
+		// TODO Auto-generated method stub
+		
+	}
 	
-	List<String> dataStr = new ArrayList<String>();
+	/*List<String> dataStr = new ArrayList<String>();
 	Adapter adapter;
 
 	@Override
@@ -108,7 +113,7 @@ public class ListViewA extends QProjectItem {
 		}
 
 		
-	}
+	}*/
 
 
 	

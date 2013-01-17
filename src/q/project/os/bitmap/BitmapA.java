@@ -2,11 +2,11 @@ package q.project.os.bitmap;
 
 import q.project.QProjectItem;
 import q.project.R;
+import q.bitmap.BitmapUtil;
 import q.bitmap.QBitmapDecoder;
 import q.bitmap.QBitmapFilter;
 import q.bitmap.QBitmapFilterColor;
 import q.bitmap.QBitmapFilterMatrix;
-import q.bitmap.QBitmapUtil;
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -198,7 +198,7 @@ public class BitmapA extends QProjectItem {
 		iv.setBackgroundColor(0xFFFFFFFF);
 		new AlertDialog.Builder(this)
 		.setView(iv)
-		.setMessage(QBitmapUtil.toString(bm))
+		.setMessage(BitmapUtil.toString(bm))
 		.show();
 	}
 

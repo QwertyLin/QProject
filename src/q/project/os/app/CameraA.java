@@ -1,7 +1,7 @@
 package q.project.os.app;
 
+import q.bitmap.BitmapUtil;
 import q.project.R;
-import q.bitmap.QBitmapUtil;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -69,7 +69,7 @@ public class CameraA extends Activity {
 					public void onCompleted(Bitmap bm) {
 						ImageView iv = new ImageView(ctx);
 						iv.setImageBitmap(bm);
-					    new AlertDialog.Builder(ctx).setView(iv).setMessage(QBitmapUtil.toString(bm)).show();
+					    new AlertDialog.Builder(ctx).setView(iv).setMessage(BitmapUtil.toString(bm)).show();
 					}
 				});
 				
